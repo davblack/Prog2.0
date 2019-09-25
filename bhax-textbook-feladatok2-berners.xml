@@ -1,0 +1,98 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Berners-Lee!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>JAVA, C++ összehasonlitás: </title>
+        <para>
+            Java: Nyékyné Dr. Gaizler Judit et al. Java 2 útikalauz programozóknak 5.0 I-II. 
+        </para>
+        <para>
+            C++: Benedek Zoltán, Levendovszky Tihamér Szoftverfejlesztés C++ nyelven
+        </para>
+
+        <para>
+                Osztályozásnak nevezzük azt a folyamatot, amelynek során a hasonló objektumokat közös csoportokba az-
+                az osztályokba soroljuk. Az objektumorientált programokban közös tervezésre ad lehetőséget, hogy sok
+                objektum hasonló jellemzőkkel rendelkezik Nagy előnyt jelent az, ha sok hasonló objektumot közös "terv-
+                rajz" alapján tudunk elkészíteni. Ezeket az ún. tervrajzokat hívjuk osztályoknak. Az osztály bizonyos fajta
+                objektumok közös változóit és metódusait írja le. Az ostályok definiálhatnak példányváltozókat, osztály-
+                változókat és osztálymetódusokat is. Az osztályváltozók az összes objektumpéldány számára megosztott
+                információkat tartalmaznak. Ha osztályváltozókat alkalmatunk akkor feleslegesek lesznek a példányválto-
+                zók. Az osztályok legnagyobb előnye az újrafeljhasználhatóság. Az objektum változókból és kapcsolódó
+                metódusokból felépített egység. Az objektum tulajdonságait célszerű elrejteni tehát nem publikusként ke-
+                zelni és csak a metódusokon keresztül befolyásolni. Az objektumok használatának legnagyobb előnye
+                a modularitás és az információelrejtés. Modularitás: Az objektum forráskódja független marad más ob-
+                jektumok forráskódjától és ennek köszönhetően könnyen tud illeszkedni a rendszer különböző részeihez.
+                Információ elrejtés: Az objektum a publikus interfészén kommunikál a többi objektum felé. Illetve gondos-
+                kodik a saját adatairól és csak a metódusain keresztül ad változtatási lehetőséget a külső objektumoknak.
+                A külső objektumoknak igazából nem is kell tudnia arról, hogy az objektum állapota hogyan van reprezen-
+                tálva, csak a kívánt viselkedést kell kérnie a metódusokon keresztül. A pédányosításhoz a new operátort
+                használjük a Javaban. Ez egy új példányt hoz létre az osztályból és foglal helyet a memóriában. Szüksé-
+                günk van egy konstruktorra is ami a hívást írja elő, ennek a neve adja majd meg, hogy melyik osztályból
+                kell létrehozni az új példányt és inicializálja az új objektumot. A new operátor egy hivatkozást ad vissza a
+                létrehozott objektumra. Gyakran ezt a hivatkozást hozzárendeljük egy változóhoz. Ha a hivatkozás nincs
+                hozzárendelve változóhoz, az objektumot nem lehet majd elérni, miután a new operátort tartalmazó utasítás
+                végrehajtódott. Az ilyen objektumot névtelen objektumnak is szoktuk nevezni. A java fordító egy bájtkód-
+                nak nevezett formátumra fordítja le a forráskódot amit a jvm önálló interpreterként fog érzékelni. Előnyös
+                biztosnági szempontból de lassú, ezért minden jó jvm próbálja növelni a sebességet. A kódot fordítás előtt
+                platformfüggő gépi kódra alakítja át. A nyelv szintaxisa c, c++ ból fejlődött ki, ez a szerkezetben jelenik
+                meg de a java el is tér tőlük vagyis a hasonlóság nem egyenlő az azonossággal. C és c++-al szemben nincs
+                alapértelmezett visszatérési érték, mindig meg kell azt adni, váltózókhoz "="-el lehet értéket rendelni kez-
+                deti értékadás után nincs definiálva az érték. Még egy különbség, hogy név túlterhelés ugyan van a Javaban
+                is viszont operátor túlterhelés nincs benne. Illetve számos c++ kifejezés, utasítás szintaktikailag helyes
+                Javaban is sőt sokszor a jelenetése is megegyezik. A java mint nyelv szűkebb a c++nál, de az osztály-
+                könyvtárai miatt szélesebb az alkalmazhatósági területe. Támogatja például a GUI programozást, network
+                programozást vagy éppen a perzisztenciát is. C++-ban is lehet ezeket csinálni de van amelyikhez külső
+                könyvtárak segítségét kell igénybe vennünk. Valamint lehet benne forrás szinten hordozható programokat
+                írni de a szerkesztett bináris kód már nem hordozható, mert a lefordított kód tartalmazza a helyi oprendszer-
+                re és hardverre vonatkozó feltételezéseket. A Java egyik fő célja és egyben egyik legnagyobb különbsége
+                a c++-hoz képest az, hogy a kód teljes mértékben hordozható. Emiatt a Java szigorúbb előírásokat szab a
+                típusok méretére, belső szerkezetére, a kifejezések kiértékelésére és a kivételek kiváltásának ellenőrzésés-
+                re. A statikus változók inicializálása is futási időben történik Javaban valamint sokkal kevesebb dolgot bíz
+                az implementációra mint a c vagy a c++. Ezt azért teszi, hogy maga a kód amely hordozható ne függjön
+                annyira a platformtól és az implementációtól. A Java nyelv nagyon odafigyel arra, hogy a kód a lehető
+                legpontosabban forduljon le és működjön. Ezért az ellenőrzésés során kitér olyan dolgokra is amire a c++
+                és a c nem. Ilyen például a lokális változók ellenőrzése, pontosabban annak ellenőrzése, hogy kapnak-e
+                értéket.
+        </para>
+       
+    </section>        
+
+    <section>
+        <title>Python olvaso naplo</title>
+        <para>
+                Python: Forstner Bertalan, Ekler Péter, Kelényi Imre: Bevezetés a mobilprogramozásba.
+                Gyors prototípus-fejlesztés Python és Java nyelven (35-51 oldal)
+        </para>
+        <para>
+
+        </para>
+        <para>
+                A phyton programozási nyelv a C++-tól, c-től és a Javatól eltérő módon arra lett inkább tervezve hogy ne
+                a futási sebességet tegye előtérbe, hanem inkább a programozót segítse azzal, hogy könnyebben olvasható.
+                Maga a Phyton egy nagyon magas szintű programozási nyelv melyet 1989 és 1991 között alkottak meg.
+                Egy objektumorientált interpreteres nyelv (tehát rögtön futtatható, nincs különbség a forrás és a tárgykód
+                között). Ahogy a könyv címe is sejtteti az olvasóval a Phyton legelterjettebb felhasználási területe a mobil-
+                programozás. A nyelv legfőbb jellemzője ami megkülönbözteti az általunk már jobban ismert nyelvektől és
+                ujdonság lehet a számunkra, hogy a szintaxisa behúzás alapú. Ez azt jelenti h az állításokat azonos szintű
+                behúzásokkal tudjuk csoportosítani. Nem kell kapcsos zárójeleket és kulcsszavakat mint például a begin és
+                az end használatba vennünk ehhez a feladathoz. Nagyon fontos, hogy az első utasítás a szkriptben nem le-
+                het behúzás illetve ezeket egységesen kell kezelnünk. Továbbá az utasítások csak a sor végéig tartanak nem
+                kell ezeket lezárni. Ha mégsem férne egy utasítás egy sorba akkor ’/’-el tudjuk ezt folytatni a következő
+                sorba.
+        </para>
+        <para>
+                            
+        </para>
+        <para>
+            
+        </para>
+    </section>        
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>             
