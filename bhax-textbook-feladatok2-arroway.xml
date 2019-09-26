@@ -17,13 +17,134 @@
                 Ugyanezt írjuk meg C++ nyelven is! (lásd még UDPROG repó: source/labor/polargen)
         </para>
         
-        <para>
-            Megoldás forrása:                
+        <para> JAVA forras:
+            <programlisting language="java"><![CDATA[
+            public class PolarGenerator {
+                boolean nincsTarolt = true;
+                double tarolt;
+                public PolarGenerator() {
+                nincsTarolt = true;
+                }
+                public double kovetkezo() {
+                if(nincsTarolt) {
+                double u1, u2, v1, v2, w;
+                do {
+                u1 = Math.random();
+                u2 = Math.random();
+                v1 = 2 * u1 - 1;
+                v2 = 2 * u2 - 1;
+                w = v1 * v1 + v2 * v2;
+                } while(w > 1);
+                double r = Math.sqrt(-2 * Math.log(w) / w);
+                tarolt = r * v2;
+                nincsTarolt = !nincsTarolt;
+                return r * v1;
+                } else {
+                nincsTarolt = !nincsTarolt;
+                return tarolt;
+                }
+                }
+                public static void main(String[] args) {
+                PolarGenerator pg = new PolarGenerator();
+                for(int i = 0; i < 10; i++) {
+                System.out.println(pg.kovetkezo());
+                }
+                }
+                } 
+            ]]></programlisting>              
         </para>
+        <para>
+                <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="img/polargenerator.png" scale="50"/>
+                        </imageobject>
+                    </mediaobject> 
+        </para>
+            <para> C++ forras:
+                    <programlisting language="java"><![CDATA[
+                    #ifndef POLARGEN__H
+                    #define POLARGEN__H
+                    #include <cstdlib>
+                    #include <cmath>
+                    #include <ctime>
+                    #include <iostream>
+                                      
+                    class PolarGen{
+                    public:
+                      PolarGen (({
+                        nincsTarolt = true;
+                        std::srand (std::time (NULL));
+                      }
+                       ~PolarGen (){
+                      }
+                      double kovetkezo ();  
+                    private:
+                      bool nincsTarolt;
+                      double tarolt;
+                    };
+                    #endif
+                    double
+                    PolarGen::kovetkezo (){
+                      if (nincsTarolt){
+                          double u1, u2, v1, v2, w;
+                          do{
+                          u1 = std::rand () / (RAND_MAX + 1.0);
+                          u2 = std::rand () / (RAND_MAX + 1.0);
+                          v1 = 2 * u1 - 1;
+                          v2 = 2 * u2 - 1;
+                          w = v1 * v1 + v2 * v2;
+                        }
+                          while (w > 1);
+                          double r = std::sqrt ((-2 * std::log (w)) / w);
+                          tarolt = r * v2;
+                          nincsTarolt = !nincsTarolt;
+                          return r * v1;
+                    }
+                        else{
+                          nincsTarolt = !nincsTarolt;
+                          return tarolt;
+                        }
+                }   
+                    int
+                    main (int argc, char **argv){
+                      PolarGen pg;
+                      for (int i = 0; i < 10; ++i)
+                        std::cout << pg.kovetkezo () << std::endl;
+                      return 0;
+                    }
+                    ]]></programlisting>  
+            </para>
 
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+                Az objektumorientált programozás (OOP) olyan módszert nyújt a programozók számára, amely lehetővé
+                teszi a programok bonyolultságának csökkentését, a megbízhatóság és a hatékonyság növelését. Objektu-
+                mokból, tehát a valós világ elemeinek programozási modelljeiből építi fel a programot. A C++ és a Java is
+                objektumorientált programozási nyelv.
+        </para>        
+                Remek OO bevezető példa lehet egy polártranszformációs normális generátor megírása C++-ban és Java-
+                ban. A módosított polármódszeres algoritmus matematikai háttere a feladatmegoldás szempontjából lé-
+                nyegtelen, fontos viszont az a tény, hogy egy számítási lépés két normális eloszlású számot állít elő, tehát
+                elég az előző lépés másik számát visszaadnunk.
+        <para>
+                A C++ megoldásban használjuk a scope operátort, amely lehetővé teszi, hogy hozzáférjünk az std névtérhez.
+                Ennek köszönhetően tudunk random számot visszaadni, gyököt vonni, illetve logaritmizálni. Kiiratásnál és
+                sortörésnél is hasznos. A nincsTarolt változóval jelöljük azt, hogy páros vagy páratlan lépésben hívtuk-e
+                meg a kovetkezo() függvényt. Ha értéke igaz, akkor tárolt lebegőpontos változóban van a visszaadandó
+                szám.
         </para>
+        <para>        
+                A feladat feladata az, hogy rámutasson az objektum orientált programozás előnyeire, amire eddig konkrétan
+                nem tértünk ki a könyvben. A program megvalósítása után azt kell látnunk, hogy nekünk, programozók-
+                nak a matematikai háttérrel alig kell foglalkoznunk, és mégis viszonylag komplex problémák megoldására
+                vagyunk képesek programok segítségével. A kód alább látható.
+        </para>
+        <para>        
+                A polártranszformációs normális generátor egy pszeudórandomszámok generálására kitalált aloritmus, amely-
+                nek magas effektivitást tulajdonítanak a matematikusok, hiszen nem egy, hanem kettő pszeudórandom szám
+                jön létre egy lefutás során, hanem kettő, így minden páros lefutásnál elegendő az előzőleg generált számok-
+                ból a másodikat visszaadni.
+        </para>
+
     </section> 
 
     <section>
@@ -57,28 +178,60 @@
                 példányokat poolozza!
         </para>
         
+        <para>Forras: </para>
         <para>
             <programlisting language="java"><![CDATA[
-                    package gagyi;
-                    class Gagyi {
-                        public static void main(String[]args){
-                    
-                            Integer x=-128;
-                            Integer y=-128;
-                    
-                            System.out.println(x);
-                            System.out.println(y);
-                    
-                            while (x <= y && x >= y && y != x);
-                    
+                import java.util.Scanner;
+                public class gagyi {
+                    public static void main(String[]args){
+                        Scanner sc;
+                        sc = new Scanner(System.in);
+                        Integer x= sc.nextInt();
+                        Integer y= sc.nextInt();
+                
+                        System.out.println(x);
+                        System.out.println(y);
+                
+                        while (x <= y && x >= y && y != x) {
+                            ;
                         }
+                
                     }
+                }
                 
                 ]]></programlisting>                 
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            A feladat az, hogy választ adjunk a „<programlisting language="c"><![CDATA[while(x <= t && x >= t && t != x);
+                ]]></programlisting>”
+            tesztkérdéstípusra. A kérdésre a választ az Ineteger.java forrásban találjuk.
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/integerjava.png" scale="50"/>
+                </imageobject>
+            </mediaobject>            
         </para>
+        <para>
+            Az IntegerCache low értéke a -128, a high értéke pedig 127. Azaz csak abban az esetben
+            lesz ugyanaz az objektum kiosztva mind a két értéknek, ha az -128 és 127 közé esik, vagy
+            ezzel egyenlő. Ellenkező esetben a feltétel valamelyik ága meghíjusul, így a „return new
+            Integer(i);” sor fog lefutni, vagyis különböző című objektumokat rendel majd az értékekhez.
+            Írjunk java programot, amivel ezt szemléltetni tudjuk.
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/129gagyi.png" scale="50"/>
+                </imageobject>
+            </mediaobject> 
+            Ahogy látjuk -129es értékekre a while feltétele teljesül, vagyis végtelen ciklus jön létre.
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/128gagyi.png" scale="50"/>
+                </imageobject>
+            </mediaobject> 
+            -128as értékre pedig a while feltétele nem teljesül, így nem jön létre vételen ciklus, és befejeződik a program. 
+        </para>
+
+
     </section>     
 
     <section>
@@ -89,13 +242,53 @@
                 <link xlink:href="https://en.wikipedia.org/wiki/Yoda_conditions">https://en.wikipedia.org/wiki/Yoda_conditions</link>
         </para>
         <para>
-            Megoldás videó:
+            A programozásban a Yoda Conditons egy programozói stílus, ahol egy feltétel két része meg
+            van cserélve egymással. A Yoda Conditions a konstans részt a feltétel bal oldalára helyezi.
+            Ennek a programozási stílusnak a neve a Star Wars címü filmből ered, amiben egy Yoda
+            nevü karakter nem szabványos nyelvtannal beszél.
         </para>
         <para>
-            Megoldás forrása:                
+            Két féle hibától is megóv a Yoda conditions:
+            1. ha összehasonlitás helyett értékadás történik
+            2. null értékü string összehasonlitásnál                
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Irjuk meg a programot az 1. esetre, és szándékosan kövessük el a hibát:
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/yodahiba.png" scale="50"/>
+                </imageobject>
+            </mediaobject>
+            Tehát direkt elkövetjük a hibát: összehasonlitás helyett (==) értékadás törénik (=), láthatjuk,
+            hogy a program lefordul és futtatásnál java.lang.NullPointerException hibát jelez.
+        </para>
+        <para>
+            Ha pedig követjük a Yava conditionst , vagyis felcseréljük a feltétel két részét, a program
+            már a forditásnál jelzi a hibát (és ez nyilván előnyösebb, mivel a forditásnál kapott hiba
+            alapján könnyebben megtaláljuk a programkódunkban a hibát):
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/yodahiba2.png" scale="50"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+        <para>
+            2. eset, kövessük a Yoda conditonst:
+            (Tulajdonképpen a 2. eset is az elsőnek egy változata: itt egy függvényhivással történik a
+            feltétel ellenőrzése)
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/yodahiba3.png" scale="50"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+        <para>
+            Yoda conditions követés nélkül java.lang.NullPointerException hiba:
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/yodahiba4.png" scale="50"/>
+                </imageobject>
+            </mediaobject>
         </para>
     </section>  
 

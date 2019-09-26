@@ -59,12 +59,13 @@
                 legpontosabban forduljon le és működjön. Ezért az ellenőrzésés során kitér olyan dolgokra is amire a c++
                 és a c nem. Ilyen például a lokális változók ellenőrzése, pontosabban annak ellenőrzése, hogy kapnak-e
                 értéket.
+                
         </para>
        
     </section>        
 
     <section>
-        <title>Python olvaso naplo</title>
+        <title>Python olvasó napló</title>
         <para>
                 Python: Forstner Bertalan, Ekler Péter, Kelényi Imre: Bevezetés a mobilprogramozásba.
                 Gyors prototípus-fejlesztés Python és Java nyelven (35-51 oldal)

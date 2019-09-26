@@ -34,4 +34,20 @@
             Aktualizálás, javítások.
         </revremark>
     </revision>
+    <revision>
+            <revnumber>0.1.0</revnumber>
+            <date>2019-09-19</date>
+            <authorinitials>davidfekete</authorinitials>
+            <revremark>
+                Berners lee csokor, olvasónapló. 
+            </revremark>
+        </revision>
+        <revision>
+                <revnumber>0.1.1</revnumber>
+                <date>2019-09-26</date>
+                <authorinitials>davidfekete</authorinitials>
+                <revremark>
+                    Arroway csokor megoldása. 
+                </revremark>
+            </revision>
 </revhistory>

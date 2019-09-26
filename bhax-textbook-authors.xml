@@ -26,4 +26,19 @@
             </otheraddr>
         </address>
     </author>    
+    <author>
+        <personname>
+            <surname>Fekete</surname>
+            <firstname>Dávid</firstname>        
+        </personname>    
+        <affiliation>
+            <jobtitle>Egyetemi Hallgató</jobtitle>
+            <orgname>Debreceni Egyetem</orgname>
+        
+            <address>              
+                <email>davidfekete51@gmail.com</email>
+            </address>
+        </affiliation>
+    
+    </author>    
 </authorgroup>
