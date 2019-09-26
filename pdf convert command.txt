@@ -1,1 +1,0 @@
-dblatex bhax-textbook-fdl.xml -p bhax-textbook.xls
