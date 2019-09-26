@@ -60,7 +60,24 @@
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:                
+            <programlisting language="java"><![CDATA[Program T100
+                {
+                    package gagyi;
+                    class Gagyi {
+                        public static void main(String[]args){
+                    
+                            Integer x=-128;
+                            Integer y=-128;
+                    
+                            System.out.println(x);
+                            System.out.println(y);
+                    
+                            while (x <= y && x >= y && y != x);
+                    
+                        }
+                    }
+                
+                }]]></programlisting>                 
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat...
