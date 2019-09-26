@@ -56,12 +56,9 @@
                 értékekkel meg nem! A példát építsd a JDK Integer.java forrására 3 , hogy a 128-nál inkluzív objektum
                 példányokat poolozza!
         </para>
+        
         <para>
-            Megoldás videó:
-        </para>
-        <para>
-            <programlisting language="java"><![CDATA[Program T100
-                {
+            <programlisting language="java"><![CDATA[
                     package gagyi;
                     class Gagyi {
                         public static void main(String[]args){
@@ -77,7 +74,7 @@
                         }
                     }
                 
-                }]]></programlisting>                 
+                ]]></programlisting>                 
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat...
