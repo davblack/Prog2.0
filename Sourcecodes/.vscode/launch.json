@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Gagyi",
+            "request": "launch",
+            "mainClass": "gagyi.Gagyi"
+        }
+    ]
+}
