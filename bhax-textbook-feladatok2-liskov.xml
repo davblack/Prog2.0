@@ -1,0 +1,230 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Liskov</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>Szülő-gyerek</title>
+        <para>
+            Írjunk Szülő-gyerek Java és C++ osztálydefiníciót, amelyben demonstrálni tudjuk, hogy az ősön
+            keresztül csak az ős üzenetei küldhetőek!
+            <link xlink:href="https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf">https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf</link> (98. fólia)  
+        </para>
+        <para>
+        A feladat telesítéséhez tehát írjunk Java és C++ programot, amivel bemutatjuk, hogy az
+        ősön keresztül csak az ős üzenetei küldhetőek.
+        </para>
+        <para> Irjunk szülő-gyerek példaprogramot javaban:
+            <programlisting language="java"><![CDATA[
+                class Parent {
+                    void fgv(){}
+                };
+                
+                class Child extends Parent {
+                    void fgv2(){}
+                };
+                
+                
+                public class szulogyerek {
+                    public static void main(String[]args){
+                        Parent p = new Child();
+                        p.fgv();
+                        p.fgv2();
+                    }
+                }
+            ]]></programlisting>              
+        </para>
+        <para>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/szulogyerekjava.png" scale="50"/>
+                </imageobject>
+            </mediaobject> 
+        </para>
+        <para>Ugyanezt pedig c++ban is próbáljuk ki:
+                <programlisting language="c++"><![CDATA[
+                    class Parent {
+                            public:
+                                void fgv(){}
+                        };
+                        
+                        class Child: public Parent {
+                            public:
+                                void fgv2(){}
+                        };
+                        
+                        int main(){
+                            Parent p = Child();
+                            p.fgv();
+                            p.fgv2();
+                        }
+                    ]]></programlisting>  
+        </para>
+        <para>
+            <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="img/szulogyerekcpp.png" scale="50"/>
+                    </imageobject>
+            </mediaobject> 
+        </para>
+        <para>
+            A fordításnál error kapunk mindkét esetben, mivel a Parent típusú class-on keresztül nem érjük el a Child
+            típusú class függvényeit.     
+        </para>        
+
+    </section> 
+
+    <section>
+        <title>Ciklomatikus komplexitás</title>
+        <para>
+            Számoljuk ki valamelyik programunk függvényeinek ciklomatikus komplexitását! Lásd a fogalom
+            tekintetében a 
+            <link xlink:href="https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_2.pdf ">https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_2.pdf</link>(77-79
+            fóliát)!
+        </para>
+        <para>
+        A ciklomatikus komplexitás kiszámítása:
+        C = E – N + 2*P
+        ahol :
+        C = Ciklomatikus Komplexitás
+        E = A gráf széleinek száma.
+        N = A gráf csomópontjainak száma.
+        P = Azon csomópontok száma, amelyeknek kilépési pontjuk van.
+        A következő lépésben irjunk egyszerű példaprogramkódot, aminek kisztámíthatjuk a
+        cikolomatikus komplexitását a képlet alapján.
+        </para>
+        <para>Példaprogram c++ban:
+            <programlisting language="c++"><![CDATA[
+            #include<iostream>                    
+                using namespace std;
+                int main(){
+                    int a,b,c;
+                    cin >> a;
+                    cin >> b;
+                    cin >> c;
+                    if (a == 10){
+                        if (b > c){
+                            a = b;
+                        }
+                        else {
+                            a = c;
+                        }                       
+                    }
+                    cout<<a<<endl;
+                    cout<<b<<endl;
+                    cout<<c<<endl;
+                }           
+                ]]></programlisting>     
+        </para>
+        <para>
+            Ábrázoljuk a programkódot, hogy könnyebben ki tudjuk számitani a cikolmatikus
+            komplexitást:     
+        </para>
+        <para>
+            <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="img/ciklo.png" scale="50"/>
+                   </imageobject>
+            </mediaobject> 
+        </para>
+        <para>
+            Ciklomatikus komplexitás = E – N +2*P
+            Ebben az esteben E = 8, N = 7, P = 1, tehát a példaprogram ciklomatikus komplexitása 3.   
+        </para>
+    </section>  
+
+    <section>
+        <title>Liskov helyettesítés sértése</title>      
+        <para>
+                Írjunk olyan OO, leforduló Java és C++ kódcsipetet, amely megsérti a Liskov elvet! Mutassunk rá a megol-
+                dásra: jobb OO tervezés.  
+                <link xlink:href="https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf">https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf</link>(93-
+                99 fólia) (számos példa szerepel az elv megsértésére az UDPROG repóban, lásd pl. source/binom/Batfai-
+                Barki/madarak/)              
+        </para>       
+        <para>
+                Az objektumorientált programozás öt fő tervezési elve közé tartozik az ún. Liskov-helyettesítés. Ha S
+                osztály T osztály leszármazottja, akkor S szabadon behelyettesíthető minden olyan helyre (pl. változó),
+                ahol T típust várunk.
+                Tegyük fel, hogy az Allat osztály lesz a mi példánkban a T osztály. Az S osztályaink (T osztály leszárma-
+                zottjai) a következők: Zebra, Oroszlan. Két osztály alkotja a P programot az LPS-ben.
+                A programban az Zebra már nem tud vadászni, hiába lesz a leszármazott típusoknak vadász metódusa, azt
+                a Allat allat-ra úgysem lehet hívni. Ezzel tehát a Liskov-helyettesítés elvére odafigyeltünk.
+        </para>
+        <para>Liskovra_figyel.java :
+            <programlisting language="c++"><![CDATA[
+                #include <iostream>
+                        using namespace std;
+                        class Allat {
+                        };
+                        class RagadozoAllat: public Allat {
+                        public:
+                            void vadaszik(){
+                                cout << "vadaszik ..." << endl;
+                            }
+                        };
+                        class Oroszlan: public RagadozoAllat {
+                        };
+                        class Zebra : public Allat {
+                        };
+                        int main ( int argc, char **argv ) {
+                            Oroszlan oroszlan;
+                            Zebra zebra;
+                        
+                        //  zebra.vadaszik();
+                            oroszlan.vadaszik();
+                            return 0;
+                        }
+                
+                ]]></programlisting>                 
+        </para>
+        <para>
+            Példa programunkban a Madar osztály hibásan lett definiálva, mert tartalmazza a repul() metódust,
+            így az összes Madar-ból származtatott osztály is tartalmazni fogja a repul() funkciót. Ez alapvetően
+            hibás, mert nem minden madár tud repülni. Hibába ütközünk, amikor a Pingvin osztályt is a madárból
+            származtatjuk, ugyanis a pingvin nem tud repülni.          
+        </para>
+        <para>
+            <programlisting language="c++"><![CDATA[
+                #include <iostream>
+                        using namespace std;
+                        class Allat {
+                        };
+                        class RagadozoAllat: public Allat {
+                        public:
+                        void vadaszik(){
+                        cout << "vadaszik ..." << endl;
+                        }
+                        };
+                        class Oroszlan: public RagadozoAllat {
+                        };
+                        class Zebra : public Allat {
+                        };
+                        int main ( int argc, char **argv ){
+                        Oroszlan oroszlan;
+                        Zebra zebra;
+                        //
+                        zebra.vadaszik();
+                        oroszlan.vadaszik();
+                        return 0;
+                        ]]></programlisting> 
+           
+        </para>
+        <para>
+            A Liskov helyettesítési elv megköveteli, hogy minden osztály legyen helyettesíthető egy gyermek osztályá-
+            val anélkül, hogy a program helyes működése megváltozna.
+            Ebből a kódcsipetből kiindulva megkezdődhet az elv megsértése. Továbbra is megmaradt a T osztály, illetve
+            az S osztályok, viszont ezúttal nem a RagadozoAllat (S) osztályban jelenik meg a "vadászik". Ezúttal tehát
+            így a P programban is tud vadászni az állat. Sérül a Liskov-helyettesítés elve, hiszen ebben a kódban a
+            zebra vadászik, ami lehetetlenség.
+        </para>
+    </section>     
+
+    
+    
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                
