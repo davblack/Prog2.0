@@ -1,0 +1,118 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Mandelbrot!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>Reverse engineering UML osztálydiagram</title>
+        <para>
+            UML osztálydiagram rajzolása az első védési C++ programhoz. Az osztálydiagramot a forrásokból
+            generáljuk (pl. Argo UML, Umbrello, Eclipse UML) Mutassunk rá a kompozíció és aggregáció
+            kapcsolatára a forráskódban és a diagramon, lásd még: https://youtu.be/Td_nlERlEOs.
+            https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_6.pdf (28-32 fólia) 
+        </para>
+        <para>
+            Az UML egy egységesített modellezőnyelv , amelynek segítségével jól szemléltethetőek a
+            fejlesztési modellek.
+        </para>
+        <para>
+            Kompozíció:
+            Rész-egész kapcsolatot jelent, az egyik objektum tartalmazza vagy birtokolja a másikat.  
+        </para>
+        <para>        
+            Aggregáció:
+            A tartalmazott a tartalmazó nélkül nem létezhet.    
+        </para>
+        <para>        
+            ULM osztálydiagram létrehozására használjuk az Umbrello nevű programot.
+            (Miután megismerkedünk az Umbrello programmal, és saját erőből létrehozunk
+            osztálydiagramokat, egy beépített importáló eszköz segítségével programkódból UML
+            osztálydiagramokat tudunk létrehozni, és fordítva: osztálydiagramokból programkódot
+            generálhatunk. )    
+        </para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="img/reverseuml.png" scale="50"/>
+            </imageobject>
+        </mediaobject> 
+
+    </section> 
+
+    <section>
+        <title>Forward engineering UML osztálydiagram</title>
+        <para>
+            UML-ben tervezzünk osztályokat és generáljunk belőle forrást! 
+        </para>
+        
+        <para>
+            Ehhez a feladathoz is használjuk az Umbrello nevű programot.              
+        </para>
+        <para>
+            Az umbrello lehetővé teszi, hogy osztálydiagramokhoz különböző paramétereket vegyünk
+            fel, amiknek kezdőértéket is adhatunk, vagy függvényeket adjunk hozzá, amihez
+            paramétereket is beállíthatunk, illetve ezekhez kezdőértéket.
+        </para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="img/forwarduml.png" scale="50"/>
+            </imageobject>
+        </mediaobject> 
+        <para>
+            Ebből az egyszerű osztálydiagramból a következő java kódot kapjuk, amit fordíthatunk és
+            futtathatunk is:
+        </para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="img/umlgenerated.png" scale="50"/>
+            </imageobject>
+        </mediaobject> 
+    </section>  
+
+    <section>
+        <title>BPMN</title>
+        
+        <para>
+            Rajzoljunk le egy tevékenységet BPMN-ben!
+            https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_7.pdf (34-47 fólia)   
+        </para>
+        
+        <para>
+            BPMB = Business Process Model and Notation
+        </para>
+        <para>
+            A BPMN (Business Process Model and Notation) üzleti folyamatokat reprezentál grafikusan
+            egy üzleti folyamat modellben, amit a BPMI (Business Process Management Initiative)
+            fejlesztett ki.            
+        </para>
+        <para>
+            BPMN szerkesztéshez használjuk a következő online szerkesztőt:
+                 
+            <link xlink:href="https://demo.bpmn.io/new">https://demo.bpmn.io/new</link>  
+        </para>
+        <para>
+            Gyakorlás képen szerkesszük meg a példában bemutatott BPMN modellt:
+        </para>
+        <para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="img/bpmn1.png" scale="50"/>
+            </imageobject>
+        </mediaobject> 
+        </para>
+        <para>
+            Ez után a feladatot teljesítve készítsünk saját modellt.
+            (A következő BPMN modell egy operációs rendszer bejelentkezést próbál ábrázolni.)
+        </para>
+        <para>
+        <mediaobject>
+             <imageobject>
+                <imagedata fileref="img/bpmn2.png" scale="50"/>
+             </imageobject>
+        </mediaobject>     
+        </para>
+    </section>     
+
+ </chapter>   
