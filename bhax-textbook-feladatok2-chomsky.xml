@@ -1,0 +1,243 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Chomsky!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title>Encoding</title>
+        <para>
+            Feladat:
+            Fordítsuk le és futtassuk a Javat tanítok könyv MandelbrotHalmazNagyító.java forrását úgy,
+            hogy a
+            fájl nevekben és a forrásokban is meghagyjuk az ékezetes betűket!
+            https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/adatok.html    
+        </para>
+         <para>
+            A linken található MandelbrotHalmazNagyító forditásához az ékezetes betűk használata
+            miatt fordításnál -encoding opciót kell választanunk, hogy a fordító fel tudja dolgozni az
+            ékezetes karaktereket is, éspedig olyat amiben megtalálhatóak az ékezetes karakterek.  
+        </para>  
+        <para>
+            A feladatnak eleget téve próbáljunk ki egy opciót, amiben nem működnek az ékezetes karakterek( EUC-JP ):
+        </para>
+        <para>
+            <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="img/mandelbrothibas.png" scale="50"/>
+                    </imageobject>
+            </mediaobject> 
+        </para>
+        <para>        
+             Ebben az esetben „unmappable character” hibára hivatkozva nem fordul a program.  
+        </para>
+        
+        <para>
+            Most pedig próbáljuk ki UTF-8 -as encoding opciót.            
+        </para>
+        <para>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/mandelbrotjo.png" scale="50"/>
+                </imageobject>
+            </mediaobject> 
+        </para>
+        <para>        
+              Igy pedig lefordul hiba nélkül.  
+        </para>
+    </section> 
+
+    <section>
+        <title>l334d1c4</title>
+        <para>
+            Feladat:
+            Írj olyan OO Java vagy C++ osztályt, amely leet cipherként működik, azaz megvalósítja ezt
+            a betű
+            helyettesítést: https://simple.wikipedia.org/wiki/Leet   
+        </para>  
+        <para>
+            A Leet (néha l33t vagy 1337 formában is leírva), más néven eleet vagy leetspeak az angol
+            nyelvnek egy másik ábécéje amit álltalában az interneten használnak. Az ASCII karakterem
+            különféle kombinációját használja a latin betűk helyett. Például a leet szó leírható l33t vagy
+            1337-ként, vagy pedig az eleet leírható 3l33t vagy 31337-ként.
+            A Leetet főként az angol nyelvben használják, de más nyelveken is használható pl Francia,
+            Spanyol vagy Német.              
+        </para>
+        <para>
+        </para>
+          <para>
+            Írjunk olyan java programot ami egy szöveg betűit kicseréli a szótárban szereőlő betűkre.
+        </para>
+        <para>
+        <programlisting language="java"><![CDATA[
+        public class l33t{
+            public static char[][] szotar= new char[][] {
+                {'A','a','4'},
+                {'B','b','8'},
+                {'C','c','('},
+                {'D','d','|',')'},
+                {'E','e','3'},
+                {'F','f','|','='},
+                {'G','g','6'},
+                {'H','h','|','-','|'},
+                {'I','i','1'},
+                {'J','j','_','|'},
+                {'K','k','|','<'},
+                {'L','l','|','_'},
+                {'M','m','4','4'},
+                {'N','n','/','|','/'},
+                {'O','o','0'},
+                {'P','p','|','o'},
+                {'Q','q','O'},
+                {'R','r','|','2'},
+                {'S','s','5'},
+                {'T','t','7'},
+                {'U','u','|','_','|'},
+                {'V','v','|','/'},
+                {'W','w','|','/','|','/'},
+                {'X','x','>','<'},
+                {'Y','y','`','/'},
+                {'Z','z','2'}
+            };
+
+            public static String fordito(String arg){
+
+                char[] szoveg = new char[arg.length()];
+
+                for(int i=0; i < arg.length(); i++){
+                    szoveg[i]=arg.charAt(i);
+                }
+
+                StringBuffer forditott = new StringBuffer();
+
+                for(int i=0; i<szoveg.length; i++){
+                    for(int j=0; j<26; j++){
+                        int k = 0;
+                        while(k < szotar[j].length){
+                            if ((szoveg[i] == szotar[j][0]) || (szoveg[i]==szotar[j][1])){
+                                for(int l=0; l<szotar[j].length-2; l++){
+                                    forditott.append(szotar[j][l+2]);
+                                }
+                                break;
+                            }
+                            k++;
+                        }
+                    }
+                }
+
+
+                return forditott.toString();
+            }
+
+                public static void main(String[] args){
+
+                    if(args.length != 1) {
+                        System.out.println("l33t.java <szöveg>");
+                        System.exit(-1);
+                    }
+
+                    String forditott = fordito(args[0]);
+
+                    System.out.println(forditott);
+                }
+        }
+                        
+        ]]></programlisting>                 
+        </para>
+        <para>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/leet.png" scale="50"/>
+                </imageobject>
+            </mediaobject>            
+        </para>
+        <para>
+            A program bekér argumentumként egy szöveget, amit leet nyelvre fordít át.
+        </para>
+    </section>     
+
+    <section>
+        <title>Full screen</title>
+        <para>
+             Készítsünk egy teljes képernyős Java programot! Tipp:   
+            <link xlink:href="https://www.tankonyvtar.hu/en/tartalom/tkt/javat-tanitok-javat/ch03.html#labirintus_jatek">https://www.tankonyvtar.hu/en/tartalom/tkt/javat-tanitok-javat/ch03.html#labirintus_jatek</link>
+        </para>
+        <para>
+            A feladat tehát az, hogy készítsünk el egy teljes képernyős Java programot, ami egy teljes
+            képernyős üres képernyő is lehet, ennek megfelelően írjunk olyan teljes képernyős Java
+            programot, ami elfoglalja a teljes képernyőt.       
+        </para>
+        <para>
+            <programlisting language="java"><![CDATA[
+                import java.awt.Canvas;
+                import java.awt.Dimension;
+                import java.awt.Frame;
+                import java.awt.GraphicsDevice;
+                import java.awt.GraphicsEnvironment;
+                import java.awt.event.WindowAdapter;
+                import java.awt.event.WindowEvent;
+
+                public class FullScreen {
+                    
+                    private static Frame frame;
+                    private static Canvas canvas;
+
+                    private static int canvasWidth = 0;
+                    private static int canvasHeight = 0;
+
+                    private static void makeFullscreen() {
+                        GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+                        GraphicsDevice gd = env.getDefaultScreenDevice();
+                        
+                        if(gd.isFullScreenSupported()) {
+                            gd.setFullScreenWindow(frame);
+                        }
+                        
+                    }
+                    
+                    public static void init (){
+                        frame = new Frame();
+                        canvas = new Canvas();
+                        Dimension dim = new Dimension(canvasWidth, canvasHeight);
+
+                        canvas.setPreferredSize(dim);
+                        frame.add(canvas);
+                        //fejléc eltüntetése
+                        frame.setUndecorated(true);
+                        //ha lenne content
+                        frame.pack();
+                        //méretezés eltüntetése
+                        frame.setResizable(false);
+                        //képernyő közepére helyezés
+                        frame.setLocationRelativeTo(null);
+                        
+                        makeFullscreen();
+
+                        //ha lenne content
+                        frame.setVisible(true);
+                        
+                        //ablak bezáró gomb
+                        frame.addWindowListener(new WindowAdapter () {
+                            public void windowClosing (WindowEvent e) {
+                                quit();
+                            }
+                        });
+
+                    }
+
+                    public static void main(String[] args) {
+                        init();
+                    }
+                    
+                    public static void quit() {
+                        System.exit(0);
+                    }
+                }
+            ]]></programlisting>  
+        </para>
+        <para>
+            Ezt fordítva és futtatva egy teljes képernyőt kitöltő fehér képernyőt kapunk.
+        </para>
+    </section>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+</chapter>                
