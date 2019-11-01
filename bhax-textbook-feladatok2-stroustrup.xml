@@ -1,0 +1,210 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Stroustrup!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>JDK osztályok</title>
+        <para>
+            Írjunk olyan Boost C++ programot (indulj ki például a fénykardból) amely kilistázza a JDK összes
+            osztályát (miután kicsomagoltuk az src.zip állományt, arra ráengedve)!    
+        </para>
+        <para>
+            A JDK (Java Development Kit) a Sun Microsystems terméke, amit a Java fejlesztőknek
+            szántak. A JDK az egyik legnépszerűbb fejlesztőeszköz.    
+        </para> 
+        <para>        
+            A JDK rengeteg programozási eszközökt tartalmaz, például a java fordítóprogramot is, a
+            javac-t.                   
+        </para>
+        <para>
+            A feladat megoldásához írjunk olyan Boost c++ programot, ami megszámolja és kilistázza a
+            JDK osztályokat, majd az Open JDK 10.0.2-es verziójában szereplő src.zip-et csomagoljuk
+            ki és engedjük rá a programot.  
+        </para>
+        
+        <para> forras1:
+            <programlisting language="c++"><![CDATA[
+            #include <iostream>
+#include <vector>
+#include <string>
+//#include <boost/filesystem.hpp>
+
+using namespace boost::filesystem;
+
+std::vector<std::string> listOfFiles;
+int count = 0;
+
+//std::vector<std::string> getAllFilesInDir(std::string dirPath) {
+void countFiles(std::string dirPath){
+    path p(dirPath);
+
+    try {
+        if (exists(p) && is_directory(p)) {
+            for (directory_entry& x : directory_iterator(p)) {
+                //listOfFiles = getAllFilesInDir(x.path().string());
+                countFiles(x.path().string());
+            }
+        }
+		else {
+			//listOfFiles.push_back(p.string());
+            count++;
+		}
+	}
+	catch (std::system_error & e) {
+		std::cerr << "Exception :: " << e.what();
+	}
+    //return listOfFiles;
+}
+
+int main(int argc, char* argv[]){
+    std::string dirPath = argv[1];
+
+	/*std::vector<std::string> listOfFiles = getAllFilesInDir(dirPath);
+
+    int k = 0;
+
+	for (auto str : listOfFiles) {
+        std::cout << str << std::endl;
+    }
+
+    std::cout << listOfFiles.size();*/
+
+    countFiles(dirPath);
+    std::cout << count ;
+}
+            ]]></programlisting>              
+        </para>
+        <para>
+                <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="img/polargenerator.png" scale="50"/>
+                        </imageobject>
+                    </mediaobject> 
+        </para>
+            
+
+    </section> 
+
+    <section>
+        <title>Másoló-mozgató szemantika</title>
+        <para>
+            Kódcsipeteken (copy és move ctor és assign) keresztül vesd össze a C++11 másoló és a
+            mozgató szemantikáját, a mozgató konstruktort alapozd a mozgató értékadásra!   
+        </para>
+        
+        <para>
+            Konstruktor: Az objektum működéséhez szükséges erőforrásokat foglalja le.               
+        </para>
+        <para>
+            Destruktor: Erőforrásokat szabadít fel, az objektum megsemmisülése előtt.
+        </para>
+        
+        <para>
+            Másoló konstruktor: Az objektum működéséhez szükséges erőforrásokat foglalja le, majd az
+        objektumot egy másik példány másolataként létrehozza.            
+        </para>
+        <para>
+            A feladat megoldásához ítjunk olyan c++ programot amiben a mozgató konstruktort a
+            mozgató értékadásra alapozzuk.             
+        </para>
+        <para>
+            <programlisting language="c++"><![CDATA[
+                #include<iostream> 
+                    using namespace std; 
+                      
+                    class Point 
+                    { 
+                    private: 
+                        int x; 
+                    public:
+                        //Constructor
+                        Point(int x1) {
+                            x = x1;
+                        } 
+                      
+                        // Copy constructor 
+                        Point(const Point& p2) {
+                            cout << "Copy constructor called" << " \n";
+                            x = p2.x;
+                        }
+                    
+                        //Move constructor
+                        Point(const Point&& p2) {
+                            cout << "Move constructor called" << " \n";
+                            *this = move(p2.x);
+                        }
+                    
+                        //Move assign
+                        Point& operator= (Point&& p2){
+                            cout << "Move assignment called" << " \n";
+                            x = p2.x;
+                        }
+                      
+                        int getX() { 
+                            return x; 
+                        } 
+                    };
+                      
+                    int main() 
+                    { 
+                        //Ctor
+                        Point p1(10);
+                        //Move ctor
+                        Point p2 = move(p1);
+                        //Copy ctor
+                        Point p3 = p1;
+                    
+                        cout << "p1.x = " << p1.getX() << " \n";
+                        cout << "p2.x = " << p2.getX() << " \n";
+                        cout << "p3.x = " << p3.getX() << " \n";
+                      
+                        return 0; 
+                    }
+                
+                ]]></programlisting>                 
+        </para>            
+        
+    </section>  
+
+    <section>
+        <title>Összefoglaló: JDK osztályok</title>
+        
+        <para>
+            A Feladat az volt, hogy írjunk olyan Boost C++ programot amely kilistázza a JDK összes
+            osztályát (miután kicsomagoltuk az src.zip állományt, arra ráengedve). A JDK (Java
+            Development Kit) a Sun Microsystems terméke, amit a Java fejlesztőknek szántak. A JDK
+            az egyik legnépszerűbb fejlesztőeszköz. A JDK rengeteg programozási eszközökt tartalmaz,
+            például a java fordítóprogramot is, a javac-t.
+        </para>
+        
+        <para>
+            Mivel előző félévben alap követelmény volt a „fénykard” névre hallgató boostot használó
+            program megírása, ezért nem volt túl idegen ez a feladat. Csak annyi a feladat, hogy egy
+            mappán belül szerepő .java kiterjesztésű fájlokat számoljuk össze.
+        </para>
+        <para>
+            A megírt program rekurziót használ a mappa bejárására, a következő képpen: a mappában
+            az összes fájlt és mappát megvizsgálja, ha talál egy .java kiterjesztésű fájt, növel egy változó
+            értéket, ha pedig mappát talál abba belép és ugyan ezt végrehajtja addig, amíg elfogynak a
+            mappák. A feladathoz az Open JDK 10.0.2-es verzióját vizsgáljuk meg. Kicsomaguljuk az
+            src.zip-et és ráengedjük a megírt programot. A program kiírja a talált .java kiterjesztésű
+            fájlok számát, amit 22480, ez azt jelenti, hogy az Open JDK 10.0.2-es verziója 22480 darab
+            osztályt tartalmaz. Mivel a feladat megoldásának nem szempontja, hogy tároljuk és kiírjuk
+            az összes .java kiterjesztésű fájt, ezért ezt nem tesszük meg és csak megszámoljuk azokat,
+            így a program gyorsan lefut.
+        </para>
+        
+
+
+    </section>     
+
+            
+
+    
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                

@@ -16,7 +16,7 @@
         </para>
 
         <para>
-                Osztályozásnak nevezzük azt a folyamatot, amelynek során a hasonló objektumokat közös csoportokba az-
+                Osztályozásnak nevezzük azt a folyamatot, amelynek során a hasonló objektumokat közös csoportokba az-fafa
                 az osztályokba soroljuk. Az objektumorientált programokban közös tervezésre ad lehetőséget, hogy sok
                 objektum hasonló jellemzőkkel rendelkezik Nagy előnyt jelent az, ha sok hasonló objektumot közös "terv-
                 rajz" alapján tudunk elkészíteni. Ezeket az ún. tervrajzokat hívjuk osztályoknak. Az osztály bizonyos fajta

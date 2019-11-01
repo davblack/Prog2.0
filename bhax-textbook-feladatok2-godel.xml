@@ -1,0 +1,157 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Gödel!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>STL map érték szerinti rendezése</title>
+        <para>
+           Például: <link xlink:href=" https://github.com/nbatfai/future/blob/master/cs/F9F2/fenykard.cpp#L180"> https://github.com/nbatfai/future/blob/master/cs/F9F2/fenykard.cpp#L180</link>
+        </para>
+        <para> 
+            A tárolók az STL (Standard Template Library)-nek fontos részét képezik. Az STL tárolók a
+            beépített tömbökkel és a kézzel készített láncolt adatszerkezetekkel szemben olyan
+            adatszerkezetek, amelyek különféle tárolási megoldással biztonságosan és hatékonyan
+            tárolják az adatokat.            
+        </para>
+        <para>
+            A map egy variánsa a multimap, amelyben egy kulcs többször is szerepelhet, így megjelenik
+            a kulcs számosság.
+        </para> 
+         <para>       
+             Mivel az STL map alapból kulcsérték szerint rendezi önmagát, ezért az érték szerinti
+            rendezést egyszerűen úgy oldjuk meg, hogy átrakjuk a map elemeit egy pair vektorba, aztán
+            magáta vektort rendezzük     
+        </para>
+        <para>forras:
+                    <programlisting language="c++"><![CDATA[
+                        #include <iostream>
+#include <map>
+#include <vector>
+
+using namespace std;
+
+int main() {
+
+    vector<pair<int, int >> sorted;
+    int temp1 = 0;
+    int temp2 = 0;
+    std::map<int, int> a;
+    a[1] = 2;
+    a[45] = 10;
+    a[5] = 9;
+    a[54] = 3;
+    a[3] = 15;
+    a[15] = 100;
+    a[8] = 5;
+    a[22] = 13;
+
+    //map kiiratása
+    for (const auto &p : a) {
+        std::cout << "a[" << p.first << "] = " << p.second << '\n';
+    }
+    std::cout<<endl<<"érték szerint rendezve:"<<endl;
+
+    //map berakása vektorba
+    for (const auto &p : a) {
+        sorted.push_back(pair<int, int> (p.first, p.second));
+    }
+
+    //vektor rendezése
+    for(int i = 0; i < sorted.size(); i++) {
+        for(int j = 0; j <sorted.size(); j++){
+            if(sorted[i].second < sorted[j].second){
+                temp1 = sorted[i].first;
+                temp2 = sorted[i].second;
+                sorted[i].first = sorted[j].first;
+                sorted[i].second = sorted[j].second;
+                sorted[j].first = temp1;
+                sorted[j].second = temp2;
+            }
+        }
+    }
+
+    //rendezett vektor kiiratása
+    for (const auto &p : sorted) {
+        std::cout << "a[" << p.first << "] = " << p.second << '\n';
+    }
+
+    return 0;
+}
+]]></programlisting>  
+        </para>
+    </section> 
+
+    <section>
+        <title>Alternatív Tabella rendezése</title>
+        <para>
+            Mutassuk be a https://progpater.blog.hu/2011/03/11/alternativ_tabella a programban a java.lang
+            Interface Comparable <programlisting language="c++"><![CDATA[<T>]]></programlisting> szerepét!    
+        </para>
+        <para>
+            A Csapat objektumban két értéket tárolunk, ezt a két értéket hasonlítjuk össze a
+            compareTo() függvénnyel. Az „ertek” változó kereül összehasonlításra a többi objektumhoz
+            tartoró „ertek” változóval, így három féle eredmény születhet és ennek megfelően a
+            következő kimenetek alakulhatnak ki: ha az adott „ertek” változó értéke kisebb mint a
+            többié, akkor a kimenet 1, ha nagyobb, akkor a kimenet -1 illetve, ha egyenlő akkor a
+            kimenet 0.              
+        </para>
+        <para>Fordítsuk és futtassuk a Wiki2Matrix programot:
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/matrix.png" scale="50"/>
+                </imageobject>
+            </mediaobject>   
+        </para>
+        <para>
+            Majd a kapott értékmátrixot másoljuk be az AlternativTabella programba, és így forditsuk,
+            futtassuk a programot:   
+        </para>
+        <para>
+              <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/tabella.png" scale="50"/>
+                </imageobject>
+            </mediaobject>     
+        </para>
+    </section>  
+
+    <section>
+        <title>feladat</title>
+        
+        <para>
+                
+        </para>
+        
+        <para>Forras: </para>
+        <para>
+            <programlisting language="java"><![CDATA[
+                
+                
+                ]]></programlisting>                 
+        </para>
+        <para>
+                     
+        </para>
+        <para>
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="png" scale="50"/>
+                </imageobject>
+            </mediaobject> 
+           
+        </para>
+
+
+    </section>     
+
+    
+
+    
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                
