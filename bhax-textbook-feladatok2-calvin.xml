@@ -1,0 +1,163 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Calvin!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>feladat1</title>
+        <para>
+                
+        </para>asd
+        
+        <para> forras1:
+            <programlisting language="java"><![CDATA[
+            
+            ]]></programlisting>              
+        </para>
+        <para>
+                <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="img/polargenerator.png" scale="50"/>
+                        </imageobject>
+                    </mediaobject> 
+        </para>
+            <para>forras:
+                    <programlisting language="java"><![CDATA[
+                   
+                    ]]></programlisting>  
+            </para>
+
+        <para>
+                
+        </para>        
+                
+        <para>
+                
+        </para>
+        <para>        
+               
+        </para>
+        <para>        
+                
+        </para>
+
+    </section> 
+
+    <section>
+        <title>Homokózó</title>
+        <para>
+                
+        </para>
+        
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>  
+
+    <section>
+        <title>feladat</title>
+        
+        <para>
+                
+        </para>
+        
+        <para>Forras: </para>
+        <para>
+            <programlisting language="java"><![CDATA[
+                
+                
+                ]]></programlisting>                 
+        </para>
+        <para>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/integerjava.png" scale="50"/>
+                </imageobject>
+            </mediaobject>            
+        </para>
+        <para>
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/129gagyi.png" scale="50"/>
+                </imageobject>
+            </mediaobject> 
+           
+        </para>
+
+
+    </section>     
+
+    <section>
+        <title>Yoda</title>
+        <para>
+                
+                <link xlink:href="https://en.wikipedia.org/wiki/Yoda_conditions">https://en.wikipedia.org/wiki/Yoda_conditions</link>
+        </para>
+        <para>
+            
+        </para>
+        <para>
+                          
+        </para>
+        <para>
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/yodahiba.png" scale="50"/>
+                </imageobject>
+            </mediaobject>
+           
+        </para>
+        <para>
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/yodahiba2.png" scale="50"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+        <para>
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/yodahiba3.png" scale="50"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+        <para>
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/yodahiba4.png" scale="50"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+    </section>  
+
+    <section>
+        <title>Kódolás from scratch</title>
+        <para>
+                
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+    
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                

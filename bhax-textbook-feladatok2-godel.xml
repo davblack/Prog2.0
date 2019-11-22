@@ -120,30 +120,44 @@ int main() {
     </section>  
 
     <section>
-        <title>feladat</title>
+        <title>Gengszterek</title>
         
         <para>
-                
+            Gengszterek rendezése lambdával a Robotautó Világbajnokságban <link xlink:href="https://youtu.be/DL6iQwPx1Yw">https://youtu.be/DL6iQwPx1Yw</link> (8:05-
+            től)   
+            
         </para>
         
-        <para>Forras: </para>
+        <para>A lambda kifejezések segítségével név nélküli függvényeket tudunk megadni, ezek rövid egyszer felhasznát
+            függvények. Egy lambda kifejezések általánosan:
+        </para>
         <para>
-            <programlisting language="java"><![CDATA[
-                
+            <programlisting language="c++"><![CDATA[
+                [/*capture*/] (/*parameters*/)
+                    {
+                    /*body*/
+                    }            
+                ]]></programlisting>                 
+        </para>
+        <para>
+            Mint látható visszatérítési értéket nem szükséges megadni, ezt majd a fordító kikövetkezteti.
+            Az OOCWC feladatban említett kódrészlet:         
+        </para>
+        <para>
+            <programlisting language="c++"><![CDATA[
+                std::sort ( gangsters.begin(), gangsters.end(), [this, cop] ( Gangster x,
+                Gangster y )
+                {
+                return dst ( cop, x.to ) < dst ( cop, y.to );
+                } );
                 
                 ]]></programlisting>                 
         </para>
         <para>
-                     
-        </para>
-        <para>
-            
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="png" scale="50"/>
-                </imageobject>
-            </mediaobject> 
-           
+            A lambda kifejezést egy rendezés során tűnik fel, a rendezést az std::sort segítségével valósítjuk meg. Ez a
+            kódcsipet esetén a gangsters vektor kerül rendezésre. Paraméterként két Gangster objektumot kap, vissza-
+            térési érték igaz, ha az x közelebb van a rendőrhöz, mint az y. Így miután lefut a veltorban a legelső helyn
+            az a gengszter lesz aki legközelebb van a rendőrhöz.
         </para>
 
 

@@ -1,0 +1,104 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Lauda!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>Port scan</title>
+        <para>
+            Feladat: Mutassunk rá ebben a port szkennelő forrásban a kivételkezelés szerepére!           
+            <link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id52728">https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id52728</link> 
+        </para>
+        
+        <para> 
+            A port szkennelő forrás az argumentumként megadott gép portjain TCP kapcsolatot próbál
+            meg kialakítani, ha ez nem sikerül akkor, egy IOException kivétel jön létre. A kivételkezelés
+            szerepe tehát eldönteni, hogy figyeli-e az adott porotot egy folyamat.            
+        </para>
+        <para>
+            Futtassuk ezt le, argumentumként saját gépet megadva, aztán a grep segítségével nézzük
+            meg, hogy milyen portokat figyel.
+        </para>
+        <para>Forras: </para>
+        <para>
+            <programlisting language="java"><![CDATA[
+                public class KapuSzkennerr {
+                    public static void main(String[] args) {
+                        for(int i=0; i<1024; ++i)
+                            try {
+                                java.net.Socket socket = new java.net.Socket(args[0], i);
+                
+                                System.out.println(i + " figyeli");
+                
+                                socket.close();
+                
+                            } catch (Exception e) {
+                
+                                System.out.println(i + " nem figyeli");
+                
+                            }
+                    }
+                
+                }
+                ]]></programlisting>                 
+        </para>
+            <para>  
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="img/kapu.png" scale="50"/>
+                    </imageobject>
+                </mediaobject> 
+            </para>
+    </section> 
+    <section>
+        <title>Android Játék</title>
+        <para>
+            Írjunk egy egyszerű Androidos „játékot”! Építkezzünk például a 2. hét „Helló,
+            Android!” feladatára!    
+        </para>
+        <para>
+            A feladat szerint tehát egy működő androidos játékot kell írni, én ezt a következő youtube
+            tutorial alapján tettem:
+          <link xlink:href="https://www.youtube.com/watch?v=apDL78MFR3o">https://www.youtube.com/watch?v=apDL78MFR3o  </link>             
+        </para>
+        <para>
+            A játék egy tictactoe játék, ami a játék szabályai alapján működik, számolja a játékosok
+            pontjait, valami egy reset funkció is bele van építve, ami az eddig összegyüjtött pontokat
+            nullázza.
+        </para>
+
+        <para>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="img/androidj.png" scale="50"/>
+                    </imageobject>
+                </mediaobject>            
+            </para>
+    </section>  
+
+    <section>
+        <title>Junit teszt</title>
+        
+        <para>
+             A <link xlink:href="https://progpater.blog.hu/2011/03/05/labormeres_otthon_avagy_hogyan_dolgozok_fel_egy_pedat">https://progpater.blog.hu/2011/03/05/labormeres_otthon_avagy_hogyan_dolgozok_fel_egy_pedat </link> 
+            poszt kézzel számított mélységét és szórását dolgozd be egy Junit tesztbe (sztenderd védési feladat
+            volt korábban).   
+        </para>
+        
+        <para>A JUnit egy egységtesztelő keretrendszer. A teszt során lehetőség van hogy a programunkat ellenőrizzük,
+            hogy bizonyos esetekben minden rendben működik benne. Ezzel egyes Unitokat, azaz részeket szoktunk
+            tesztelni, egy osztályokat vagy függvényeket.
+            A feladatunk hogy az LZWBinFa.java programbeli mélységet és a szórást kiszámító függvényekhez ír-
+            junk egy JUnit tesztet. Így egyszerüen le tuduk ellenorozni majd bármilyen függvényt ami az LZWBinFa
+            pogramban van.
+            A programban a Progpater-en lévő értékeket használtam.
+        </para>
+    
+    </section>     
+
+     
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                
