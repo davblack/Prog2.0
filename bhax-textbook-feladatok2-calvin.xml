@@ -7,98 +7,101 @@
     </info>
 
     <section>
-        <title>feladat1</title>
+        <title>MNIST</title>
         <para>
-                
-        </para>asd
-        
-        <para> forras1:
-            <programlisting language="java"><![CDATA[
+            Az alap feladat megoldása, +saját kézzel rajzolt képet is ismerjen fel,
+            https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol Háttérként ezt vetítsük
+            le:
             
-            ]]></programlisting>              
+        <link xlink:href="https://prezi.com/0u8ncvvoabcr/no-programming-programming/">https://prezi.com/0u8ncvvoabcr/no-programming-programming//</link>
         </para>
+      
         <para>
-                <mediaobject>
-                        <imageobject>
-                            <imagedata fileref="img/polargenerator.png" scale="50"/>
-                        </imageobject>
-                    </mediaobject> 
-        </para>
-            <para>forras:
-                    <programlisting language="java"><![CDATA[
-                   
-                    ]]></programlisting>  
-            </para>
-
-        <para>
-                
+            A TensorFlow a gépi tanulás megvalósítása. Széles körű algoritmusok megvalósítására
+            képes, például beszédfelismerés, számítógépes látás, robotikában, de akár az agykutatásban
+            is alkalmazható és a számítástudomány más területein is.
+            A feladat szerint tehát telepitsük a tensorflow-t aztán futtassuk a python programot és érjük
+            el, hogy álltalunk rajzolt számjegyet is ismerjen fel:     
         </para>        
-                
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="img/mnist.png" scale="50"/>
+            </imageobject>
+        </mediaobject>    
         <para>
-                
+            A feladatban bemutatott program fekete hátterű számjegyeket ismer fel, ehhez a
+            TensorFlow-ot használja. A Google Brain csapat által megvalósított TensorFlow a
+            numerikus számításhoz és a nagy gépi tanuláshoz létrehozott nyílt forrású könyvtár. A
+            TensorFlow segítségével a számítások eloszthatóak a CPU-kon, a GPU-kon vagy
+            különbözőeszközökön. A TensorFlow képes a mély neurális hálózatok kiépítésére és
+            működtetésére.     
         </para>
         <para>        
-               
+            A TensorFlow a gépi tanulás megvalósítása. Széles körű algoritmusok megvalósítására
+            képes, például beszédfelismerés, számítógépes látás, robotikában, de akár az agykutatásban
+            is alkalmazható és a számítástudomány más területein is. A gépi tanulás fejlesztésére a
+            hardver teljesítmények folyamatos növekedése pozitívan hat.   
         </para>
         <para>        
-                
+            A gépi tanulás megértéséhez először nézzük meg, hogyan tanulnak az emberek.
+            Az agyadban található neuronok az idegrendszer legfontosabb feldolgozó egységei.
+            Egymással állnak kapcsolatban bonyolult hálózatot alkotva. Az emberi tanulás során az
+            agyban található neuronok között kapcsolatok más néven szinapszisok jönnek létre vagy
+            szűnnek meg. A gépek kis túlzással ugyanígy tanulnak. A gépi tanuló algoritusok is
+            neuronokból épül fel amelyeket összekötünk egymással, majd a gépi tanulás során ezeket az
+            összeköttetéseket módosítjuk. Ilyen esetben az a cél, hogy úgy alakítsuk ki az
+            összeköttetéseket, hogy az adott feladatot minél jobban hajtsa végre.     
         </para>
 
     </section> 
 
     <section>
-        <title>Homokózó</title>
+        <title>Android telefonra a TF objektum detektálója</title>
         <para>
-                
+            Feladat: T elepítsük fel, próbáljuk ki!    
         </para>
         
         <para>
-            Megoldás forrása:                
+            A feladat szerint tehát importáljuk AndroidStudioba a tensorflowos appot és érjük el, hogy
+            müködjön is. Több alprogram elérhető: TF Classify, TF Detect, TF Speech, TF Stylize. A
+            Feladat teljesítéséhez próbáljuk ki a TF Classify programot, ami megpróbálja beazonosítani
+            a tárgyakat.             
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/phone.png" scale="50"/>
+                </imageobject>
+            </mediaobject>
         </para>
     </section>  
 
     <section>
-        <title>feladat</title>
+        <title></title>
         
         <para>
                 
         </para>
         
-        <para>Forras: </para>
+        <para> </para>
         <para>
-            <programlisting language="java"><![CDATA[
-                
-                
-                ]]></programlisting>                 
+                            
         </para>
         <para>
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="img/integerjava.png" scale="50"/>
-                </imageobject>
-            </mediaobject>            
+                     
         </para>
         <para>
-            
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="img/129gagyi.png" scale="50"/>
-                </imageobject>
-            </mediaobject> 
-           
+
         </para>
 
 
     </section>     
 
     <section>
-        <title>Yoda</title>
+        <title></title>
         <para>
                 
-                <link xlink:href="https://en.wikipedia.org/wiki/Yoda_conditions">https://en.wikipedia.org/wiki/Yoda_conditions</link>
+                
         </para>
         <para>
             
@@ -108,56 +111,17 @@
         </para>
         <para>
             
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="img/yodahiba.png" scale="50"/>
-                </imageobject>
-            </mediaobject>
+        
+           
+        </para>
+        <para>
            
         </para>
         <para>
             
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="img/yodahiba2.png" scale="50"/>
-                </imageobject>
-            </mediaobject>
-        </para>
-        <para>
-            
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="img/yodahiba3.png" scale="50"/>
-                </imageobject>
-            </mediaobject>
-        </para>
-        <para>
-            
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="img/yodahiba4.png" scale="50"/>
-                </imageobject>
-            </mediaobject>
         </para>
     </section>  
 
-    <section>
-        <title>Kódolás from scratch</title>
-        <para>
-                
-        </para>
-        <para>
-            Megoldás videó:
-        </para>
-        <para>
-            Megoldás forrása:                
-        </para>
-        <para>
-            Tanulságok, tapasztalatok, magyarázat...
-        </para>
-    </section>        
-
-    
         
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 </chapter>                
